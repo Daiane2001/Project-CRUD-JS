@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Produtos</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href=../css/prodslist.css>
+</head>
+<body>
+    
+    <table id="tbProds">
+        <thead>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Fabricante</th>
+            <th>Data /hora</th>
+        </thead>
+        <tbody id="tbodyList"></tbody>
+    </table>
+    <button id="btnvoltar"><a href="../index.html">Voltar</a></button>
+
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script src="../js/prodslist.js"></script>
+</body>
+</html>
