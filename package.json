@@ -1,0 +1,23 @@
+{
+  "name": "aula21-04-13_2",
+  "version": "1.0.0",
+  "description": "Requisições realizadas utilizando cliente HTTP Axios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daiane2001/Project-CRUD-JS.git"
+  },
+  "keywords": [],
+  "author": "Daiane Santana de Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daiane2001/Project-CRUD-JS/issues"
+  },
+  "homepage": "https://github.com/Daiane2001/Project-CRUD-JS#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
