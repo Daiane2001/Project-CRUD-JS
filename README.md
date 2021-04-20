@@ -8,10 +8,10 @@ Utilizando método: GET, PUT.
 
 
 ### Languages
-    * HTML
-    * JavaScript
-    * css
+ * HTML
+ * JavaScript
+ * css
 
 ### Technologies
-    * AXIOS
+ * AXIOS
 
