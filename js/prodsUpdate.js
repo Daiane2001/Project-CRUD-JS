@@ -5,6 +5,7 @@ const inpNome = document.getElementById('inpNome');
 const inpDesc = document.getElementById('inpDesc');
 const inpQtda = document.getElementById('inpQtda');
 const inpFab = document.getElementById('inpFab');
+const inpdatahora = document.getElementById('inpdatahora');
 
 const btnUpdate = document.getElementById('btnUpdate');
 
@@ -23,12 +24,14 @@ btnUpdate.onclick = ()=>{
     let desc = inpDesc.value;
     let qtda = inpQtda.value;
     let fab = inpFab.value;
+    let datahora = inpdatahora.value;
 
     data = {
         'nome': nome,
         'descri': desc,
         'qtda': qtda,
-        'fabricante': fab
+        'fabricante': fab,
+        'datahora': datahora
     };
 
     if (codPro == ''){
@@ -54,7 +57,7 @@ inpCod.addEventListener('keyup', ()=>{
                 inpDesc.value = data[0].descri;
                 inpQtda.value = data[0].qtda;
                 inpFab.value = data[0].fabricante;
-                //inp.value = data[0].datahora;
+                inpdatahora.value = data[0].datahora;
             }
             
         });
