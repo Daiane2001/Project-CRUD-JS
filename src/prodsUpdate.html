@@ -14,30 +14,33 @@
         <h1>Alteração de Produtos</h1>
     </header>
     <main>
-        <div class="containerForm">
-            <label>Código</label>
-            <input type="text" id="inpCod">
-
-            <label>Nome</label>
-            <input type="text" id="inpNome">
-
-            <label>Descrição</label>
-            <input type="text" id="inpDesc">
-
-            <label>Quantidade</label>
-            <input type="text" id="inpQtda">
-
-            <label>Fabricante</label>
-            <input type="text" id="inpFab">
-
-            <label>Data e hora</label>
-            <input type="datetime" id="inpdatahora">
-
-        </div>
-        <div class="containerButton">
-            <button id="btnUpdate">Alterar</button>
-            <button id="btnVoltar"><a href="../index.html">Voltar</a></button>
-        </div>
+        <form action="">
+            <div class="containerForm">
+                <label>Código</label>
+                <input type="text" id="inpCod" required>
+    
+                <label>Nome</label>
+                <input type="text" id="inpNome">
+    
+                <label>Descrição</label>
+                <input type="text" id="inpDesc">
+    
+                <label>Quantidade</label>
+                <input type="text" id="inpQtda">
+    
+                <label>Fabricante</label>
+                <input type="text" id="inpFab">
+    
+                <label>Data e hora</label>
+                <label type="datetimegg" id="lbldatahora"></label>
+    
+            </div>
+            <div class="containerButton">
+                <button type="submit" id="btnConsult">Consultar</button>
+                <button type="submit" id="btnUpdate">Alterar</button>
+                <button type="submit" id="btnVoltar"><a href="../index.html">Voltar</a></button>
+            </div>
+        </form>
     </main>
     <footer>
 
