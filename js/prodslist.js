@@ -1,28 +1,36 @@
-//Referências do DOM HTML
+// Referências do DOM HTML
 
 const tbodyList = document.getElementById('tbodyList');
 
-const btnFirst = document.getElementById('btnFirst');
-const btnPrev = document.getElementById('btnPrev');
+const bntFirst = document.getElementById('btnFirst');
+const bntPrev = document.getElementById('btnPrev');
 const btnNext = document.getElementById('btnNext');
-const lbtPage = document.getElementById('lbtPage');
+const btnLast = document.getElementById('btnLast');
 
-//Código
+const lblPage = document.getElementById('lblPage');
 
-let data, numberEL;
+
+// Código
+
+let data, numberEl;
+let state = {
+    page:1,
+    totalPage:1
+}
 
 const api = axios.create({
     baseURL: 'http://18.224.8.119:3334/'
 })
 
 function listAll(){
-    console.log('consulta de dados...');
+    console.log('Consulta de dados....');
+    
     api.get('produtos').then(res=>{
-        console.log('Realizando a consulta...');
+        console.log('Realizando a consulta ....');
         data = res.data;
-        numberEL = data.length;
-        console.log(numberEL);
-        state.totalPage = Math.ceil(numberEL / 5);
+        numberEl = data.length;
+        console.log(numberEl);
+        state.totalPage = Math.ceil(numberEl / 5);
         console.log(state.totalPage);
         populateList();
     });
@@ -30,18 +38,19 @@ function listAll(){
 
 function populateList(){ //preenchendo a tabela
 
-    tbodyList.innerHTML = '';
-    let i, tr;
+        tbodyList.innerHTML = '';
 
-        let iniPage = state.page -1;
-        let  = iniPage * 5;
+        let i, tr;
+
+        let iniPage = state.page - 1;
+        let startCorte = iniPage * 5;
         let endCorte = startCorte + 5;
 
         console.log('Valor do startCorte = ' + startCorte);
         console.log('Valor do endCorte = ' + endCorte);
 
-        const paginateItens = data.slice(startCorte,endCorte)
-
+        const paginateItens = data.slice(startCorte, endCorte);
+              
         for(i=0; i < paginateItens.length; i++){
             tr = '<tr>' +
                     '<td>' + paginateItens[i].cod /*o paginateItens é um vetor de objetos*/ + '</td>' +
@@ -54,15 +63,10 @@ function populateList(){ //preenchendo a tabela
             tbodyList.innerHTML += tr;
             tr = tbodyList.childNodes;
         }
-        lblPage.innerHTML = state.page;
+        lblPage.innerHTML= state.page;
 };
 
-listAll(); 
-
-let state = {
-    page:1,
-    totalPage:10
-};
+listAll();
 
 controls ={
     next(){
@@ -77,11 +81,10 @@ controls ={
             state.page++;
         }
     },
-    goto(numPage){
+    goTo(numPage){
         if(numPage < 1){
             numPage = 1;
         }
-        //total de paginação
         state.page = numPage;
         if(numPage > state.totalPage){
             state.page = state.totalPage;
@@ -91,26 +94,27 @@ controls ={
 
 console.log(state.page);
 
-btnFirst.onclick = ()=>{
-    controls.goto(1);
+bntFirst.onclick = ()=>{
+    controls.goTo(1);
     populateList();
     console.log(state.page);
 }
+
+bntPrev.onclick = ()=>{
+    controls.prev();
+    populateList();
+    console.log(state.page);
+};
 
 btnNext.onclick = ()=>{
     controls.next();
     populateList();
     console.log(state.page);
-}
-
-btnPrev.onclick = ()=>{
-    controls.prev();
-    populateList();
-    console.log(state.page);
-}
+};
 
 btnLast.onclick = ()=>{
-    controls.goto(state.totalPage);
+    controls.goTo(state.totalPage);
     populateList();
     console.log(state.page);
-}
+};
+
